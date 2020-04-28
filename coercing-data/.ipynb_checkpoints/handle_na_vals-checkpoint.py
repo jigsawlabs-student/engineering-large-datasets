@@ -3,8 +3,8 @@ from sklearn_pandas import DataFrameMapper
 
 def has_na_cols(df):
     not_object_df = df.select_dtypes(exclude = 'object')
-    has_na_cols = not_object_df.isna().any(axis = 0)
-    return has_na_cols[has_na_cols == True].index
+    na_cols = not_object_df.isna().any(axis = 0)
+    return na_cols[na_cols == True].index
 
 
 def build_null_mapper(df, cols_with_na):

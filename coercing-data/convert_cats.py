@@ -24,7 +24,3 @@ def reduce_cat_df(df, cat_cols):
     object_df = df.select_dtypes('object')
     remaining_cat_df = object_df[cat_cols]
     return remaining_cat_df.apply(lambda col: reduce_cat_values(col, .01))
-
-
-one_hot_steps = [([col], [SimpleImputer(strategy = 'constant', fill_value='na'),
-          OneHotEncoder()]) for col in cat_cols]
